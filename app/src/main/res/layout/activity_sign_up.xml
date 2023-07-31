@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/iv_signup_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="100dp"
-        tools:src="@tools:sample/avatars" />
+        android:src="@drawable/login_image" />
 
     <TextView
         android:id="@+id/tv_signup_name"
