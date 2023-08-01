@@ -68,27 +68,23 @@
 
         <android.widget.Button
             android:id="@+id/bt_signin_login"
-            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="로그인"
             app:layout_constraintLeft_toLeftOf="@id/et_signin_password"
             app:layout_constraintRight_toRightOf="@id/et_signin_password"
             app:layout_constraintTop_toBottomOf="@id/et_signin_password"
-            android:textColor="@color/white"
-            android:background="@drawable/confirm_button"/>
+            style="@style/confirm_button"/>
 
         <android.widget.Button
             android:id="@+id/bt_signin_signup"
-            android:layout_width="300dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="@id/et_signin_password"
             app:layout_constraintRight_toRightOf="@id/et_signin_password"
             app:layout_constraintTop_toBottomOf="@id/bt_signin_login"
             android:layout_marginTop="20dp"
             android:text="회원가입"
-            android:textColor="@color/white"
-            android:background="@drawable/confirm_button"
+            style="@style/confirm_button"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
