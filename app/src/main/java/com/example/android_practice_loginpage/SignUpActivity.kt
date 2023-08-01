@@ -1,5 +1,6 @@
 package com.example.android_practice_loginpage
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -42,6 +43,10 @@ class SignUpActivity : AppCompatActivity() {
 
         signUpButton.setOnClickListener {
             if(enableButton) {
+                val resultIntent = Intent()
+                resultIntent.putExtra("signUpId", idEditText.text.toString())
+                resultIntent.putExtra("signUpPassword", passwordEditText.text.toString())
+                setResult(Activity.RESULT_OK, resultIntent)
                 finish()
             }
             else {
