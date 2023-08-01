@@ -8,9 +8,15 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 
 class SignInActivity : AppCompatActivity() {
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var loginEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var loginButton: Button
 
     var enableLoginButton = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +30,11 @@ class SignInActivity : AppCompatActivity() {
             startActivity(moveToSignupPage)
         }
 
-        val loginEditText = findViewById<EditText>(R.id.et_signin_id)
-        val passwordEditText = findViewById<EditText>(R.id.et_signin_password)
-        val loginButton = findViewById<Button>(R.id.bt_signin_login)
+        loginEditText = findViewById(R.id.et_signin_id)
+        passwordEditText = findViewById(R.id.et_signin_password)
+        loginButton = findViewById(R.id.bt_signin_login)
+
+//        setResultNext()
 
         val loginTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -53,10 +61,23 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
             }
             else {
-                Toast.makeText(applicationContext, "아이디, 비밀번호를 확인해주세요.ㅇ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "아이디, 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
-
+//    private fun setResultNext() {
+//        resultLauncher = registerForActivityResult(
+//            ActivityResultContracts.StartActivityForResult()
+//        ) { result ->
+//            if (result.resultCode == RESULT_OK) {
+//
+//                val id = result.data?.getStringExtra("id") ?: ""
+//                val password = result.data?.getStringExtra("password") ?: ""
+//
+//                loginEditText.setText(id)
+//                passwordEditText.setText(password)
+//
+//            }
+//        }
+//    }
 }
