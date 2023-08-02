@@ -23,30 +23,9 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        val signUpActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                val signUpId = data?.getStringExtra("signUpId")
-                val signUpPassword = data?.getStringExtra("signUpPassword")
-
-                loginEditText.setText(signUpId)
-                passwordEditText.setText(signUpPassword)
-            }
-        }
-
-
-        //회원 가입 페이지 이동 구현
-        val signInButton = findViewById<Button>(R.id.bt_signin_signup)
-        signInButton.setOnClickListener {
-            val moveToSignupPage = Intent(this, SignUpActivity::class.java)
-            signUpActivityResultLauncher.launch(moveToSignupPage)
-        }
-
         loginEditText = findViewById(R.id.et_signin_id)
         passwordEditText = findViewById(R.id.et_signin_password)
         loginButton = findViewById(R.id.bt_signin_login)
-
-
 
         val loginTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -60,11 +39,9 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
-
-
         loginEditText.addTextChangedListener(loginTextWatcher)
         passwordEditText.addTextChangedListener(loginTextWatcher)
-        //로그인 시 홈 화면 이동 구현
+
 
         loginButton.setOnClickListener {
             if(enableLoginButton) {
@@ -77,6 +54,24 @@ class SignInActivity : AppCompatActivity() {
             else {
                 Toast.makeText(applicationContext, "아이디, 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        val signUpActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val signUpId = data?.getStringExtra("signUpId")
+                val signUpPassword = data?.getStringExtra("signUpPassword")
+
+                loginEditText.setText(signUpId)
+                passwordEditText.setText(signUpPassword)
+            }
+        }
+
+        //회원 가입 페이지 이동 구현
+        val signInButton = findViewById<Button>(R.id.bt_signin_signup)
+        signInButton.setOnClickListener {
+            val moveToSignupPage = Intent(this, SignUpActivity::class.java)
+            signUpActivityResultLauncher.launch(moveToSignupPage)
         }
 
     }

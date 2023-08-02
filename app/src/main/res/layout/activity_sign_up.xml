@@ -12,7 +12,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_signup_image"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/iv_signup_image"
                 app:layout_constraintLeft_toLeftOf="@+id/et_signup_name"
-                android:text="이름"
+                android:text="@string/signup_name_tv"
                 android:layout_marginTop="50dp" />
 
             <EditText
@@ -41,7 +41,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_signup_name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="이름을 입력하세요"
+                android:hint="@string/signup_name_et"
                 android:inputType="text"/>
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/et_signup_name"
                 app:layout_constraintLeft_toLeftOf="@+id/et_signup_name"
-                android:text="아이디"
+                android:text="@string/signup_id_tv"
                 android:layout_marginTop="50dp" />
 
             <EditText
@@ -60,7 +60,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_signup_id"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="아이디를 입력하세요"
+                android:hint="@string/signup_id_et"
                 android:inputType="text"/>
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/et_signup_id"
                 app:layout_constraintLeft_toLeftOf="@+id/et_signup_name"
-                android:text="비밀번호"
+                android:text="@string/signup_password_tv"
                 android:layout_marginTop="50dp" />
 
             <EditText
@@ -79,7 +79,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_signup_password"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="비밀번호를 입력하세요"
+                android:hint="@string/signup_password_et"
                 android:inputType="textPassword"/>
 
             <android.widget.Button
@@ -89,7 +89,7 @@
                 app:layout_constraintRight_toRightOf="@id/et_signup_password"
                 app:layout_constraintTop_toBottomOf="@id/et_signup_password"
                 android:layout_marginTop="70dp"
-                android:text="회원가입"
+                android:text="@string/signup_signup_btn"
                 style="@style/confirm_button"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
