@@ -1,5 +1,6 @@
 package com.example.android_practice_loginpage
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,6 +11,7 @@ import kotlin.random.Random
 class HomeActivity : AppCompatActivity() {
 
     var images = listOf<Int>(R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5)
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)

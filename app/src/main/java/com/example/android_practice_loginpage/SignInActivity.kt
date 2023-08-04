@@ -67,7 +67,6 @@ class SignInActivity : AppCompatActivity() {
             }
         }
 
-        //회원 가입 페이지 이동 구현
         val signInButton = findViewById<Button>(R.id.bt_signin_signup)
         signInButton.setOnClickListener {
             val moveToSignupPage = Intent(this, SignUpActivity::class.java)
