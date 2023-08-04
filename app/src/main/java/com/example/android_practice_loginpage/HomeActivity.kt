@@ -3,31 +3,49 @@ package com.example.android_practice_loginpage
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import org.w3c.dom.Text
 import kotlin.random.Random
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
-    var images = listOf<Int>(R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5)
-    @SuppressLint("SetTextI18n")
+    private val images = listOf<Int>(R.drawable.profile1, R.drawable.profile2, R.drawable.profile3, R.drawable.profile4, R.drawable.profile5)
+    private val randomNum = (0..4).random()
+
+    private lateinit var textId : TextView
+    private lateinit var finishButton: Button
+    private lateinit var mainImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val textId = findViewById<TextView>(R.id.tv_home_id)
         val idData = intent.getStringExtra("loginId")
-        val finishButton = findViewById<Button>(R.id.bt_home_exit)
-        val image = findViewById<ImageView>(R.id.iv_home_image)
 
-        val randomNum = (0..4).random()
-        image.setImageResource(images[randomNum])
+        textId = findViewById(R.id.tv_home_id)
+        finishButton = findViewById(R.id.bt_home_exit)
+        mainImage = findViewById(R.id.iv_home_image)
 
-        textId.text = "아이디 : $idData"
+        finishButton.setOnClickListener(this)
 
-        finishButton.setOnClickListener {
-            finish()
+        setImage(mainImage, images)
+        setText(textId, "아이디 : $idData")
+
+    }
+    override fun onClick(v: View?) {
+        when(v?.id) {
+            R.id.bt_home_exit -> {
+                finish()
+            }
         }
+    }
+    private fun setImage(image : ImageView, imageList : List<Int>) {
+        image.setImageResource(imageList[randomNum])
+    }
+    private fun setText(textView:TextView, data:String) {
+        textView.text = data
     }
 }
