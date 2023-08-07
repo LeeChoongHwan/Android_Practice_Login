@@ -73,6 +73,8 @@
         android:text="@string/home_exit_btn"
         android:layout_marginBottom="100dp"
         style="@style/confirm_button"
+        android:background="@drawable/selector_exit_button"
+        android:textColor="@color/black"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
