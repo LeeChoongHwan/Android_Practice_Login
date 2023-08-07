@@ -31,7 +31,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         loginEditText.addTextChangedListener(loginTextWatcher)
         passwordEditText.addTextChangedListener(loginTextWatcher)
 
-
         loginButton.setOnClickListener(this)
         signInButton.setOnClickListener(this)
 
@@ -67,10 +66,10 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                     val moveToHomePage = Intent(this, HomeActivity::class.java)
                     moveToHomePage.putExtra("loginId", loginId)
                     startActivity(moveToHomePage)
-                    Toast.makeText(applicationContext, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
+                    makeShortToast("로그인에 성공했습니다.")
                 }
                 else {
-                    Toast.makeText(applicationContext, "아이디, 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
+                    makeShortToast("아이디, 비밀번호를 확인해주세요.")
                 }
             }
             R.id.bt_signin_signup -> {
@@ -78,6 +77,10 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 signUpActivityResultLauncher.launch(moveToSignupPage)
             }
         }
+    }
+
+    private fun makeShortToast(content : String) {
+        Toast.makeText(applicationContext, content, Toast.LENGTH_SHORT).show()
     }
 
 }
